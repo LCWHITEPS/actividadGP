@@ -1,0 +1,29 @@
+name: CI - Validación del proyecto
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Mostrar información
+        run: |
+          echo "Workflow ejecutado correctamente"
+          echo "Repositorio: ${{ github.repository }}"
+          echo "Rama: ${{ github.ref_name }}"
+
+      - name: Validación
+        run: |
+          echo "Validación completada correctamente"    
